@@ -8,7 +8,7 @@
   width: 100%;
   position: -webkit-sticky;
   position: sticky;
-  top: 100px;
+  top: 0px;
   background-color: white;
 }
 
@@ -47,7 +47,7 @@ table {
 table #table-header {
   position: -webkit-sticky;
   position: sticky;
-  top: 150px;
+  top: 50px;
   z-index: 10;
   background-color: white;
 }
@@ -82,12 +82,13 @@ table tr td:first-child {
 }
 
 table tr:nth-child(even) {
-  background: rgba(12, 12, 12, 0.53);
+  background: #0c0c0c;
+  color: white;
   border-radius: 10px;
 }
 
 table tr:nth-child(odd) {
-  background: rgba(145, 145, 145, 0.53);
+  background: rgba(12, 12, 12, 0.2);
   border-radius: 10px;
 }
 /*# sourceMappingURL=index.css.map */

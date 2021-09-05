@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Box from "../../components/box";
 import Table from "../../components/table";
 import { sortArrayBasedOnObjProperty } from "../../utils/functions";
 import { AiOutlineTrophy } from "react-icons/ai";
@@ -11,12 +10,14 @@ const LeaderBoard = ({ data }) => {
   const displayRank = (rank) => {
     if (rank < 4) {
       return (
-        <div className="rank-icon">
-          <div className="trophy">
-            <AiOutlineTrophy />
+        <>
+          <div className="rank-icon">
+            <div className="trophy">
+              <AiOutlineTrophy color={trophyColor[rank]} />
+            </div>
+            <div className="rank-text">{rank}</div>
           </div>
-          <div className="rank-text">{rank}</div>
-        </div>
+        </>
       );
     } else return <td key={rank}>{rank}</td>;
   };
@@ -51,6 +52,12 @@ const LeaderBoard = ({ data }) => {
       action={action}
     />
   );
+};
+
+const trophyColor = {
+  1: "#F1A613",
+  2: "#B0A7A7",
+  3: "9D480D",
 };
 
 export default LeaderBoard;

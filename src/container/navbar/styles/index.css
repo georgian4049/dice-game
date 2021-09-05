@@ -6,5 +6,15 @@
   height: 100px;
   z-index: 100;
   background-color: white;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link :hover {
+  color: black;
 }
 /*# sourceMappingURL=index.css.map */

@@ -60,7 +60,6 @@
 .rank-text {
   position: absolute;
   top: 20%;
-  color: #fff;
 }
 
 .rank-icon {
@@ -69,7 +68,6 @@
 }
 
 .rank-icon .rank-text {
-  color: #000;
   font-size: 20px;
   position: absolute;
   bottom: 20px;
@@ -84,5 +82,37 @@
   left: 50%;
   -webkit-transform: translate(-50%, 0%);
           transform: translate(-50%, 0%);
+}
+
+.ongoing-game-info-main {
+  height: 100%;
+  width: 100%;
+  min-width: 500px;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#start-match {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  background-color: aquamarine;
+  cursor: pointer;
+  margin: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+  left: 50%;
+  z-index: 100;
+}
+
+#start-match:disabled {
+  cursor: not-allowed;
 }
 /*# sourceMappingURL=index.css.map */

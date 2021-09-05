@@ -3,21 +3,24 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./container/home";
 import Play from "./container/play";
 import Navbar from "./container/navbar";
+import WrongPage from "./pages/wrongpage";
+import ErrorBoundary from "./container/errorBoundary/ErrorBoundary";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <div className="content-body">
-        <BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Navbar />
+        <div className="content-body">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/play" component={Play} />
+            <Route path="/" component={WrongPage} />
           </Switch>
-        </BrowserRouter>
-      </div>
-    </>
+        </div>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 

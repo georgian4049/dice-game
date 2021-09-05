@@ -18,6 +18,7 @@ $dialogDimensionValue: 300px;
   align-items: center;
   padding: var(--standard-padding);
   box-sizing: border-box;
+  border-radius: 5px;
   .dialog-close-icon {
     transform: rotate(45deg);
     position: absolute;
