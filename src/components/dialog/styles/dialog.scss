@@ -1,0 +1,31 @@
+$dialogDimensionValue: 300px;
+
+@mixin dialogDimension {
+  width: 400px;
+  height: 300px;
+}
+
+.dialog-content {
+  @include dialogDimension();
+  z-index: 1000;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--standard-padding);
+  box-sizing: border-box;
+  .dialog-close-icon {
+    transform: rotate(45deg);
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    cursor: pointer;
+    color: black;
+    font-size: 30px;
+    width: 20px;
+  }
+}

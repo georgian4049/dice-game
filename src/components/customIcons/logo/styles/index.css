@@ -1,0 +1,22 @@
+.win-icon {
+  height: 80px;
+  position: relative;
+}
+
+.win-icon .dice-icon {
+  font-size: 30px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+}
+
+.win-icon .trophy-icon {
+  font-size: 80px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+}
+/*# sourceMappingURL=index.css.map */

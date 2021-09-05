@@ -1,0 +1,36 @@
+.dialog-content {
+  width: 400px;
+  height: 300px;
+  z-index: 1000;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: var(--standard-padding);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.dialog-content .dialog-close-icon {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  cursor: pointer;
+  color: black;
+  font-size: 30px;
+  width: 20px;
+}
+/*# sourceMappingURL=dialog.css.map */

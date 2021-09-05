@@ -1,0 +1,73 @@
+$primary-color: #dc1fff;
+$success-color: #01f39d;
+
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.dice {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: aquamarine;
+  color: black;
+  font-weight: 900;
+}
+.display-players-body {
+  width: 100%;
+  height: calc(100vh - 100px);
+}
+.leader-board-table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: padding-box;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  button {
+    border-radius: 5px;
+    padding: 4px 10px;
+    background-color: aquamarine;
+    color: black;
+    font-weight: 900;
+    cursor: pointer;
+  }
+}
+
+.rank-trophy {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+.rank-text {
+  position: absolute;
+  top: 20%;
+  color: #fff;
+}
+
+.rank-icon {
+  height: 50px;
+  position: relative;
+
+  .rank-text {
+    color: #000;
+    font-size: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .trophy {
+    font-size: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+}

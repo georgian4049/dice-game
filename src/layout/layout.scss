@@ -1,0 +1,97 @@
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app {
+  display: flex;
+  top: 0;
+  background-color: black;
+  color: #fff;
+  max-height: 100vh;
+}
+.sidebar {
+  width: 100px;
+  background-color: black;
+  /* height: 100vh; */
+}
+.main-bg {
+  filter: blur(8px);
+  background-image: url("../Assets/imgs/bg1.png");
+  /* Full height */
+  height: 100vh;
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-left: 3px solid #8d8d8d;
+  width: calc(100% - 100px);
+  min-width: none;
+}
+// .main-body {
+//   // flex-grow: 1;
+//   border-top-left-radius: 80px;
+//   border-bottom-left-radius: 80px;
+//   border-left: 3px solid #8d8d8d;
+//   width: calc(100% - 100px);
+//   min-width: none;
+//   // background-position: center;
+//   // background-repeat: no-repeat;
+//   // background-size: cover;
+//   // background-image: url("../Assets/imgs/bg1.png");
+//   // filter: blur(8px);
+//   max-height: 100vh;
+//   z-index: 1;
+// }
+.main-body-content {
+  display: flex;
+  flex-wrap: wrap;
+  background: transparent;
+  padding: 10px 10px;
+  height: 100%;
+  overflow-y: auto;
+  width: calc(100vw-100px);
+  z-index: 2;
+}
+.main-body {
+  flex-grow: 1;
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: hidden;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  position: absolute;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-left: 3px solid #8d8d8d;
+  left: 100px;
+  width: calc(100% - 100px);
+  min-width: none;
+  padding: 10px 20px 5px 60px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(49, 45, 45);
+}
+.circular-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

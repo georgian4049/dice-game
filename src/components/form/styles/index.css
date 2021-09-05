@@ -1,0 +1,14 @@
+input {
+  width: 50%;
+  min-width: 200px;
+  border-radius: 5px;
+  height: 40px;
+  margin: 5px;
+  padding-inline: 10px;
+  display: block;
+}
+
+input:focus {
+  outline: none;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin dice-common-property {
+  background: black;
+  opacity: 0.75;
+}
+
+.dice {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  position: relative;
+  background-color: black;
+
+  .face-1 {
+    color: white;
+
+    :nth-child(1) {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: white;
+      z-index: 2;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.scene {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  perspective: 600px;
+  z-index: 1;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 1s;
+  cursor: pointer;
+}
+
+.cube.show-1 {
+  transform: translateZ(-100px) rotateY(0deg);
+}
+.cube.show-2 {
+  transform: translateZ(-100px) rotateY(-180deg);
+}
+.cube.show-3 {
+  transform: translateZ(-100px) rotateY(-90deg);
+}
+.cube.show-4 {
+  transform: translateZ(-100px) rotateY(90deg);
+}
+.cube.show-5 {
+  transform: translateZ(-100px) rotateX(-90deg);
+}
+.cube.show-6 {
+  transform: translateZ(-100px) rotateX(90deg);
+}
+
+.cube__face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 4px solid white;
+  line-height: 200px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.cube__face--1 {
+  @include dice-common-property;
+}
+.cube__face--start {
+  @include dice-common-property;
+}
+.cube__face--3 {
+  @include dice-common-property;
+}
+.cube__face--2 {
+  @include dice-common-property;
+}
+.cube__face--4 {
+  @include dice-common-property;
+}
+.cube__face--5 {
+  @include dice-common-property;
+}
+.cube__face--6 {
+  @include dice-common-property;
+}
+
+.cube__face--1 {
+  transform: rotateY(0deg) translateZ(100px);
+}
+.cube__face--2 {
+  transform: rotateY(180deg) translateZ(100px);
+}
+.cube__face--3 {
+  transform: rotateY(90deg) translateZ(100px);
+}
+.cube__face--4 {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+.cube__face--5 {
+  transform: rotateX(90deg) translateZ(100px);
+}
+.cube__face--6 {
+  transform: rotateX(-90deg) translateZ(100px);
+}
