@@ -139,6 +139,7 @@ const Play = () => {
   useEffect(() => {
     setCurrentPlayer(initialPlayersData[initialQueue[0]]);
     setQueue(initialQueue);
+    /*eslint-disable-next-line*/
   }, [initialQueue]);
 
   useEffect(() => {
