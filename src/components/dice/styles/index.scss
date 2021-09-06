@@ -7,31 +7,6 @@
   opacity: 0.75;
 }
 
-.dice {
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
-  position: relative;
-  background-color: black;
-
-  .face-1 {
-    color: white;
-
-    :nth-child(1) {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      color: white;
-      z-index: 2;
-
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-}
-
 .scene {
   width: 200px;
   height: 200px;
@@ -55,6 +30,9 @@
 }
 
 .cube.show-1 {
+  transform: translateZ(-100px) rotateY(0deg);
+}
+.cube.show-roll {
   transform: translateZ(-100px) rotateY(0deg);
 }
 .cube.show-2 {
@@ -88,7 +66,7 @@
 .cube__face--1 {
   @include dice-common-property;
 }
-.cube__face--start {
+.cube__face--roll {
   @include dice-common-property;
 }
 .cube__face--3 {
@@ -107,9 +85,14 @@
   @include dice-common-property;
 }
 
+.cube__face--roll {
+  transform: rotateY(0deg) translateZ(100px);
+}
+
 .cube__face--1 {
   transform: rotateY(0deg) translateZ(100px);
 }
+
 .cube__face--2 {
   transform: rotateY(180deg) translateZ(100px);
 }

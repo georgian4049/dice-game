@@ -32,6 +32,7 @@ const Play = () => {
   const handleDice = async () => {
     const _diceValue = randomNumberGenarator(1, 7);
     let _queue = queue;
+
     setDiceValue(_diceValue);
     setEnableDice(false);
     const currentPlayerId = queue[0];
@@ -68,7 +69,7 @@ const Play = () => {
       });
     } else if (_diceValue !== 6) {
       _queue = rotateQueue(_queue, 1);
-      findNextPlayer(_queue);
+      findNextPlayer(_queue, currentPlayer);
     } else if (_diceValue === 6) {
       setDialogInformation({
         type: "reRoll",
@@ -80,7 +81,7 @@ const Play = () => {
     setOpenDialog(true);
   };
 
-  const findNextPlayer = async (_queue) => {
+  const findNextPlayer = async (_queue, lastPlayer) => {
     let initialPlayerId = _queue[0];
     let count = 0;
     let playersWithPenalty = [];
@@ -101,8 +102,8 @@ const Play = () => {
       type: "next",
       playersWithPenalty,
       nextPlayer: players[_queue[0]]?.userName,
+      lastPlayer,
     });
-
     setQueue(_queue);
     await sleep(1000);
   };
@@ -120,7 +121,7 @@ const Play = () => {
   };
 
   const deQueue = () => {
-    let _queue = queue;
+    let _queue = [...queue];
     _queue.shift();
     setQueue(_queue);
   };

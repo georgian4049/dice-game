@@ -28,6 +28,17 @@ const Notification = ({ info, handleCancel }) => {
       <NextPlayerBody handleCancel={handleCancel} iconColor="green">
         {" "}
         <Box width="100%">
+          <Box width="100%">
+            {" "}
+            <b>Last Player : </b> {info.lastPlayer?.userName} scored{" "}
+            {
+              info.lastPlayer?.scoreOrder[
+                info.lastPlayer?.scoreOrder.length - 1
+              ]
+            }
+            {" points "}
+          </Box>
+          <br />
           {info?.playersWithPenalty?.length ? (
             <>
               <Box width="100%" textAlign="center">
@@ -49,7 +60,7 @@ const Notification = ({ info, handleCancel }) => {
             ""
           )}
           <Box width="100%" contentType="flexCenter">
-            <b>Next Turn: </b> {info.nextPlayer}
+            <b>Next Turn : </b> {info.nextPlayer}
           </Box>
         </Box>
       </NextPlayerBody>
@@ -77,8 +88,7 @@ const Notification = ({ info, handleCancel }) => {
             <div key={index}>{_info.userName}</div>
           ))}
         </Box>
-        <Box>Last winner:</Box>
-        <Box>{info.lastWinner.userName}</Box>
+        <Box>Last winner: {info.lastWinner.userName}</Box>
         <div className="footer">
           <button onClick={() => history.push("/home")}>Play Again!</button>
         </div>

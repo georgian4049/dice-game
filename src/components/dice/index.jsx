@@ -6,17 +6,11 @@ const Dice = ({ face, handleDice }) => {
   return (
     <div className="scene">
       <div className={`cube show-${face}`} onClick={handleDice}>
-        {face === "start" ? (
-          <div className="cube__face cube__face--start">Start</div>
-        ) : (
-          <>
-            {faces.map((face) => (
-              <div key={face} className={`cube__face cube__face--${face}`}>
-                {face}
-              </div>
-            ))}
-          </>
-        )}
+        {faces.map((face) => (
+          <div key={face} className={`cube__face cube__face--${face}`}>
+            {face}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -28,7 +22,7 @@ Dice.propTypes = {
 };
 
 Dice.defaultProps = {
-  face: "start",
+  face: "roll",
   handleDice: () => {},
 };
 

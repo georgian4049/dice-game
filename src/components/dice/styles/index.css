@@ -3,31 +3,6 @@
           box-sizing: border-box;
 }
 
-.dice {
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
-  position: relative;
-  background-color: black;
-}
-
-.dice .face-1 {
-  color: white;
-}
-
-.dice .face-1 :nth-child(1) {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
-  z-index: 2;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .scene {
   width: 200px;
   height: 200px;
@@ -57,6 +32,11 @@
 }
 
 .cube.show-1 {
+  -webkit-transform: translateZ(-100px) rotateY(0deg);
+          transform: translateZ(-100px) rotateY(0deg);
+}
+
+.cube.show-roll {
   -webkit-transform: translateZ(-100px) rotateY(0deg);
           transform: translateZ(-100px) rotateY(0deg);
 }
@@ -103,7 +83,7 @@
   opacity: 0.75;
 }
 
-.cube__face--start {
+.cube__face--roll {
   background: black;
   opacity: 0.75;
 }
@@ -131,6 +111,11 @@
 .cube__face--6 {
   background: black;
   opacity: 0.75;
+}
+
+.cube__face--roll {
+  -webkit-transform: rotateY(0deg) translateZ(100px);
+          transform: rotateY(0deg) translateZ(100px);
 }
 
 .cube__face--1 {
