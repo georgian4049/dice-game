@@ -67,7 +67,7 @@ const LeaderBoard = ({ data, currentPlayer }) => {
             action[column] ? (
               action[column](rowData.rank, dataIndex)
             ) : (
-              <td key={columnIndex + dataIndex}>
+              <td key={columnIndex + dataIndex + 1}>
                 {rowData[column]?.toString()}
               </td>
             )

@@ -48,7 +48,7 @@ const Notification = ({ info, handleCancel }) => {
           ) : (
             ""
           )}
-          <Box>
+          <Box width="100%" contentType="flexCenter">
             <b>Next Turn: </b> {info.nextPlayer}
           </Box>
         </Box>
@@ -71,7 +71,7 @@ const Notification = ({ info, handleCancel }) => {
       <Box textAlign="center" color="green">
         Game Over!
         <br />
-        <Box>Winners:</Box>
+        <Box>Top Three Winners:</Box>
         <Box>
           {info.topThreeWinners.map((_info, index) => (
             <div key={index}>{_info.userName}</div>

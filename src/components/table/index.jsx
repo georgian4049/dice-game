@@ -16,7 +16,11 @@ const Table = ({
   const [state, setState] = useState([]);
 
   const handleSearch = (e) => {
-    setState(data.filter((_data) => _data.userName.includes(e.target.value)));
+    setState(
+      data.filter((_data) =>
+        _data.userName.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    );
   };
   useEffect(() => {
     setState(data);

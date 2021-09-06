@@ -27,6 +27,7 @@ const Play = () => {
   const [continueGame, setContinueGame] = useState(false);
   const [queue, setQueue] = useState([]);
   const [players, setPlayers] = useState({});
+  const [currentPlayer, setCurrentPlayer] = useState({});
 
   const handleDice = async () => {
     const _diceValue = randomNumberGenarator(1, 7);
@@ -39,7 +40,14 @@ const Play = () => {
     currentPlayer?.scoreOrder.push(_diceValue);
     currentPlayer.totalPoints += _diceValue;
 
-    if (_diceValue === 1) currentPlayer?.penalty.push(1);
+    if (
+      _diceValue === 1 &&
+      currentPlayer.scoreOrder[currentPlayer.scoreOrder.length - 1] === 1
+    ) {
+      currentPlayer?.penalty.push(1);
+    } else if (_diceValue === 1) {
+      currentPlayer = { ...currentPlayer, penalty: [] };
+    }
     if (currentPlayer.totalPoints >= targetScore) {
       currentPlayer["rank"] = winners.length + 1;
       setWinners([...winners, currentPlayer]);
@@ -120,6 +128,7 @@ const Play = () => {
   const closeDialog = () => {
     setOpenDialog(false);
     if (queue.length) setEnableDice(true);
+    setCurrentPlayer(players[queue[0]]);
   };
 
   const startGame = () => {
@@ -127,6 +136,7 @@ const Play = () => {
   };
 
   useEffect(() => {
+    setCurrentPlayer(initialPlayersData[initialQueue[0]]);
     setQueue(initialQueue);
   }, [initialQueue]);
 
@@ -147,7 +157,7 @@ const Play = () => {
                 face={diceValue}
                 handleDice={handleDice}
                 disableDice={!enableDice}
-                playerInfo={players[queue[0]]}
+                playerInfo={currentPlayer}
               />
             </Box>
           ) : (

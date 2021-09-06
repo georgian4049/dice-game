@@ -28,7 +28,7 @@ export default function surveyReducer(state = initialState, { type, payload }) {
           totalPoints: 0,
           rank: "",
           penalty: [],
-          userName: `Player - ${i + 1}`,
+          userName: `Player-${i + 1}`,
           order: pos,
         };
         _players[i + 1] = _player;
