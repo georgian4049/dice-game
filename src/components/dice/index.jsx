@@ -23,7 +23,7 @@ const Dice = ({ face, handleDice }) => {
 };
 
 Dice.propTypes = {
-  face: PropTypes.string,
+  face: PropTypes.any,
   handleDice: PropTypes.func,
 };
 

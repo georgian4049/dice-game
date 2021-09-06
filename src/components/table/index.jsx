@@ -11,6 +11,7 @@ const Table = ({
   title,
   action,
   specialRowDesign,
+  specialRow,
 }) => {
   const [state, setState] = useState([]);
 
@@ -46,22 +47,19 @@ const Table = ({
         </thead>
         <tbody>
           {state.length ? (
-            state.map((_data, dataIndex) => (
-              <tr
-                key={dataIndex}
-                style={specialRowDesign ? specialRowDesign(_data) : {}}
-              >
-                {columns.map((column, columnIndex) =>
-                  action[column] && _data[column] ? (
-                    action[column](_data[column])
-                  ) : (
+            state.map((_data, dataIndex) =>
+              specialRow ? (
+                specialRow(_data, dataIndex)
+              ) : (
+                <tr key={dataIndex}>
+                  {columns.map((column, columnIndex) => (
                     <td key={dataIndex + columnIndex}>
                       {_data[column]?.toString() || dataIndex + 1}
                     </td>
-                  )
-                )}
-              </tr>
-            ))
+                  ))}
+                </tr>
+              )
+            )
           ) : (
             <tr>
               <td colSpan={columns.length} style={{ textAlign: "center" }}>

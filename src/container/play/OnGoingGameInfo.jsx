@@ -24,8 +24,11 @@ const OnGoingGameInfo = ({ playerInfo, face, handleDice, disableDice }) => {
       </Box>
       <Box display="flex" justifyContent="space-between" marginTop="50px">
         <Box width="50%" padding="10px 10px" color="#0777b3">
-          <b>Current Player: </b> <br />
+          <b>Current Player: </b>
           {playerInfo.userName}
+          <br />
+          <b> Player Rank: </b>
+          {playerInfo.rank}
         </Box>
         <div className={disableDice ? "disabled" : ""}>
           <Dice face={face} handleDice={handleDice} />

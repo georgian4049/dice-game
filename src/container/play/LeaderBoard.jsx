@@ -3,13 +3,15 @@ import PropTypes from "prop-types";
 import Table from "../../components/table";
 import { sortArrayBasedOnObjProperty } from "../../utils/functions";
 import { AiOutlineTrophy } from "react-icons/ai";
+import { TiTick } from "react-icons/ti";
+import { MdClose } from "react-icons/md";
 
 const LeaderBoard = ({ data, currentPlayer }) => {
-  const columns = ["rank", "userName", "totalPoints"];
+  const columns = ["rank", "userName", "totalPoints", "targetAchieved"];
   const [state, setState] = useState([]);
 
-  const displayRank = (rank) => {
-    if (rank < 4) {
+  const displayRank = (rank, index) => {
+    if (rank && rank < 4) {
       return (
         <>
           <div className="rank-icon">
@@ -20,29 +22,67 @@ const LeaderBoard = ({ data, currentPlayer }) => {
           </div>
         </>
       );
-    } else return <td key={rank}>{rank}</td>;
+    } else return <td key={index}>{index + 1}</td>;
+  };
+
+  const displayIsTargetAchieved = (rank, index) => {
+    if (rank) {
+      return (
+        <td>
+          <TiTick color="green" fontSize="20px" />
+        </td>
+      );
+    } else {
+      return (
+        <td>
+          <MdClose color="#fff" fontSize="20px" />
+        </td>
+      );
+    }
   };
 
   const action = {
-    rank: (rank) => displayRank(rank),
+    rank: (rank, index) => displayRank(rank, index),
+    targetAchieved: (rank, index) => displayIsTargetAchieved(rank, index),
   };
 
   const specialRowDesign = (rowData) => {
-    if (currentPlayer.userName === rowData.userName) {
+    if (currentPlayer?.userName === rowData?.userName) {
       return {
         backgroundColor: "#0777b3",
         color: "#fff",
+        position: "relative",
       };
     } else return {};
+  };
+
+  const specialRow = (rowData, dataIndex) => {
+    return (
+      <>
+        <tr
+          style={specialRowDesign ? specialRowDesign(rowData) : {}}
+          key={dataIndex}
+        >
+          {columns.map((column, columnIndex) =>
+            action[column] ? (
+              action[column](rowData.rank, dataIndex)
+            ) : (
+              <td key={columnIndex + dataIndex}>
+                {rowData[column]?.toString()}
+              </td>
+            )
+          )}
+        </tr>
+      </>
+    );
   };
 
   useEffect(() => {
     const arrayData = Object.values(data);
     let rankedPlayers = arrayData.filter((_data) => _data.rank);
     rankedPlayers = sortArrayBasedOnObjProperty(rankedPlayers, "rank", 1);
-    console.log(rankedPlayers);
+
     let unrankedPlayers = arrayData.filter((_data) => !_data.rank);
-    console.log(unrankedPlayers);
     unrankedPlayers = sortArrayBasedOnObjProperty(
       unrankedPlayers,
       "totalPoints"
@@ -50,7 +90,6 @@ const LeaderBoard = ({ data, currentPlayer }) => {
     let _players = [];
     _players.push(rankedPlayers);
     _players.push(unrankedPlayers);
-    console.log([...rankedPlayers, ...unrankedPlayers]);
     setState([...rankedPlayers, ...unrankedPlayers]);
   }, [data]);
 
@@ -61,6 +100,7 @@ const LeaderBoard = ({ data, currentPlayer }) => {
       title="Leader Board"
       action={action}
       specialRowDesign={specialRowDesign}
+      specialRow={specialRow}
     />
   );
 };

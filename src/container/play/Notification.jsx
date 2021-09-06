@@ -17,8 +17,8 @@ const Notification = ({ info, handleCancel }) => {
           {info.primary}
           <br />
           <br />
-          {info.secondary.map((_info) => (
-            <div>{_info}</div>
+          {info.secondary.map((_info, index) => (
+            <div key={index}>{_info}</div>
           ))}
         </Box>
       </Dialog>
@@ -73,8 +73,8 @@ const Notification = ({ info, handleCancel }) => {
         <br />
         <Box>Winners:</Box>
         <Box>
-          {info.topThreeWinners.map((_info) => (
-            <div>{_info.userName}</div>
+          {info.topThreeWinners.map((_info, index) => (
+            <div key={index}>{_info.userName}</div>
           ))}
         </Box>
         <Box>Last winner:</Box>

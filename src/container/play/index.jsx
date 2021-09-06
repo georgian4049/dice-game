@@ -42,7 +42,6 @@ const Play = () => {
     if (_diceValue === 1) currentPlayer?.penalty.push(1);
     if (currentPlayer.totalPoints >= targetScore) {
       currentPlayer["rank"] = winners.length + 1;
-
       setWinners([...winners, currentPlayer]);
       if (winners.length + 1 === Object.keys(players).length) {
         gameOverActions([...winners, currentPlayer]);
