@@ -10,12 +10,11 @@ const Dice = ({ face, handleDice }) => {
           <div className="cube__face cube__face--start">Start</div>
         ) : (
           <>
-            <div className="cube__face cube__face--1">1</div>
-            <div className="cube__face cube__face--2">2</div>
-            <div className="cube__face cube__face--3">3</div>
-            <div className="cube__face cube__face--4">4</div>
-            <div className="cube__face cube__face--5">5</div>
-            <div className="cube__face cube__face--6">6</div>
+            {faces.map((face) => (
+              <div key={face} className={`cube__face cube__face--${face}`}>
+                {face}
+              </div>
+            ))}
           </>
         )}
       </div>
@@ -32,5 +31,7 @@ Dice.defaultProps = {
   face: "start",
   handleDice: () => {},
 };
+
+const faces = ["1", "2", "3", "4", "5", "6"];
 
 export default Dice;

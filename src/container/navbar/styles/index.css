@@ -6,15 +6,25 @@
   height: 100px;
   z-index: 100;
   background-color: white;
+}
+
+.logo {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
   cursor: pointer;
 }
 
-.link {
+.logo .link {
   text-decoration: none;
   color: black;
 }
 
-.link :hover {
+.logo .link :hover {
   color: black;
 }
 /*# sourceMappingURL=index.css.map */

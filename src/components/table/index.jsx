@@ -4,7 +4,14 @@ import Input from "../../components/form/Input";
 import { CamelCaseToString } from "../../utils/functions";
 import "./styles/index.css";
 
-const Table = ({ data, columns, noContentsMessage, title, action }) => {
+const Table = ({
+  data,
+  columns,
+  noContentsMessage,
+  title,
+  action,
+  specialRowDesign,
+}) => {
   const [state, setState] = useState([]);
 
   const handleSearch = (e) => {
@@ -40,7 +47,10 @@ const Table = ({ data, columns, noContentsMessage, title, action }) => {
         <tbody>
           {state.length ? (
             state.map((_data, dataIndex) => (
-              <tr key={dataIndex}>
+              <tr
+                key={dataIndex}
+                style={specialRowDesign ? specialRowDesign(_data) : {}}
+              >
                 {columns.map((column, columnIndex) =>
                   action[column] && _data[column] ? (
                     action[column](_data[column])

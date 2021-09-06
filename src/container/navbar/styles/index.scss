@@ -6,12 +6,20 @@
   height: 100px;
   z-index: 100;
   background-color: white;
-  cursor: pointer;
 }
-.link {
-  text-decoration: none;
-  color: black;
-  :hover {
+.logo {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  cursor: pointer;
+  .link {
+    text-decoration: none;
     color: black;
+    :hover {
+      color: black;
+    }
   }
 }

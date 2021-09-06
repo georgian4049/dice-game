@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import Box from "../../components/box";
 import Dialog from "../../components/dialog";
 import { GrFormNextLink } from "react-icons/gr";
@@ -103,6 +103,30 @@ const NextPlayerBody = ({ children, handleCancel, iconColor }) => {
 
 const IconBox = ({ children }) => {
   return <Box contentType="flexCenter">{children}</Box>;
+};
+
+Notification.propTypes = {
+  info: PropTypes.object,
+  handleCancel: PropTypes.func,
+};
+
+Notification.defaultProps = {
+  info: {},
+  handleCancel: () => {},
+};
+
+NextPlayerBody.propTypes = {
+  children: PropTypes.any,
+  handleCancel: PropTypes.func,
+  iconColor: PropTypes.string,
+};
+NextPlayerBody.defaultProps = {
+  handleCancel: () => {},
+  iconColor: "",
+};
+
+IconBox.propTypes = {
+  children: PropTypes.any,
 };
 
 export default Notification;

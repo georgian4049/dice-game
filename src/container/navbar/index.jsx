@@ -7,12 +7,14 @@ import "./styles/index.css";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <Link to="/home" className="link">
-        <Logo />
+      <div className="logo">
+        <Link to="/home" className="link">
+          <Logo />
+        </Link>
         <Box textAlign="center" fontWeight="700">
           Dice Game
         </Box>
-      </Link>
+      </div>
     </div>
   );
 };

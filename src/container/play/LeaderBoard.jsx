@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Table from "../../components/table";
 import { sortArrayBasedOnObjProperty } from "../../utils/functions";
 import { AiOutlineTrophy } from "react-icons/ai";
 
-const LeaderBoard = ({ data }) => {
+const LeaderBoard = ({ data, currentPlayer }) => {
   const columns = ["rank", "userName", "totalPoints"];
   const [state, setState] = useState([]);
 
@@ -24,6 +25,15 @@ const LeaderBoard = ({ data }) => {
 
   const action = {
     rank: (rank) => displayRank(rank),
+  };
+
+  const specialRowDesign = (rowData) => {
+    if (currentPlayer.userName === rowData.userName) {
+      return {
+        backgroundColor: "#0777b3",
+        color: "#fff",
+      };
+    } else return {};
   };
 
   useEffect(() => {
@@ -47,17 +57,26 @@ const LeaderBoard = ({ data }) => {
   return (
     <Table
       columns={columns}
-      data={state || []}
+      data={state}
       title="Leader Board"
       action={action}
+      specialRowDesign={specialRowDesign}
     />
   );
 };
 
 const trophyColor = {
-  1: "#F1A613",
-  2: "#B0A7A7",
-  3: "9D480D",
+  1: "#DFAF37",
+  2: "#C0C0C0",
+  3: "#CD7F32",
+};
+
+LeaderBoard.propTypes = {
+  data: PropTypes.object,
+};
+
+LeaderBoard.defaultProps = {
+  data: {},
 };
 
 export default LeaderBoard;

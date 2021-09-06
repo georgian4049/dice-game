@@ -9,7 +9,7 @@ const Snackbar = () => {
       setState(false);
     }, 5000);
   }, []);
-  return <div className={open ? "snackbar show" : "snackbar"}>Ayush</div>;
+  return <div className={open ? "snackbar show" : "snackbar"}>Message</div>;
 };
 
 export default Snackbar;

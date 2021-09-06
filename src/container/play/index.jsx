@@ -8,10 +8,6 @@ import "./styles/index.css";
 import Notification from "./Notification";
 import OnGoingGameInfo from "./OnGoingGameInfo";
 
-const sleep = (milliseconds) => {
-  return new Promise((resolve) => setTimeout(resolve, milliseconds));
-};
-
 const Play = () => {
   const { initialQueue, initialPlayersData, gameConfig } = useSelector(
     (state) => state
@@ -166,7 +162,7 @@ const Play = () => {
             overflowY="auto"
             overflowX="hidden"
           >
-            <LeaderBoard data={players} />
+            <LeaderBoard data={players} currentPlayer={players[queue[0]]} />
           </Box>
         </Box>
       ) : (
@@ -199,6 +195,10 @@ const rotateQueue = (_queue, step) => {
     _queue.push(_poppedId);
   }
   return _queue;
+};
+
+const sleep = (milliseconds) => {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
 };
 
 export default Play;
