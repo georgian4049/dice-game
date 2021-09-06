@@ -27,8 +27,17 @@ const OnGoingGameInfo = ({ playerInfo, face, handleDice, disableDice }) => {
           <b>Current Player: </b>
           {playerInfo.userName}
           <br />
-          <b> Player Rank: </b>
-          {playerInfo.rank}
+          <b> Total Points: </b>
+          {playerInfo.totalPoints}
+          <br />
+          <b> Score Order: </b>
+          <Box width="100%">
+            {playerInfo.scoreOrder.map((order, i) => (
+              <span key={i}>
+                {order} {playerInfo.scoreOrder.length > i + 1 ? " -> " : ""}
+              </span>
+            ))}
+          </Box>
         </Box>
         <div className={disableDice ? "disabled" : ""}>
           <Dice face={face} handleDice={handleDice} />

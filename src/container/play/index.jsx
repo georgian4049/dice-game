@@ -27,10 +27,12 @@ const Play = () => {
   const [continueGame, setContinueGame] = useState(false);
   const [queue, setQueue] = useState([]);
   const [players, setPlayers] = useState({});
+  const [rotateQueueBy, setRotateQueueBy] = useState(0);
 
   const handleDice = async () => {
     const _diceValue = randomNumberGenarator(1, 7);
-    let _queue = queue;
+    let _queue = [...queue];
+
     setDiceValue(_diceValue);
     setEnableDice(false);
     const currentPlayerId = queue[0];
@@ -95,7 +97,7 @@ const Play = () => {
       nextPlayer: players[_queue[0]]?.userName,
     });
 
-    setQueue(_queue);
+    setRotateQueueBy(count ? count : count + 1);
     await sleep(1000);
   };
 
@@ -112,13 +114,16 @@ const Play = () => {
   };
 
   const deQueue = () => {
-    let _queue = queue;
+    let _queue = [...queue];
     _queue.shift();
     setQueue(_queue);
   };
 
   const closeDialog = () => {
     setOpenDialog(false);
+    let _queue = [...queue];
+    _queue = rotateQueue(_queue, rotateQueueBy);
+    setQueue([..._queue]);
     if (queue.length) setEnableDice(true);
   };
 
