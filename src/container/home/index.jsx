@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import Box from "../../components/box";
 import Input from "../../components/form/Input";
 import { setGameConfig } from "../../state/actions/gameActions";
 import { doesAllKeysHaveValue } from "../../utils/functions";
@@ -82,15 +81,15 @@ const Home = () => {
           ) : (
             ""
           )}
+          <button
+            id="form-team"
+            type="submit"
+            onClick={onSubmit}
+            disabled={disableSubmit}
+          >
+            Submit
+          </button>
         </div>
-        <button
-          id="form-team"
-          type="submit"
-          onClick={onSubmit}
-          disabled={disableSubmit}
-        >
-          Submit
-        </button>
       </div>
     </div>
   );

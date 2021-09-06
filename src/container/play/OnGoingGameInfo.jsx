@@ -7,6 +7,7 @@ import "./styles/index.css";
 const OnGoingGameInfo = ({ playerInfo, face, handleDice, disableDice }) => {
   return (
     <div className="ongoing-game-info-main">
+      <h2> Roll Your Dice!</h2>
       <Box width="50%" padding="10px 10px">
         <b>Current Player: </b> <br />
         {playerInfo.userName}
